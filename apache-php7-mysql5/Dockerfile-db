@@ -1,0 +1,6 @@
+FROM mysql:5.7.20
+
+MAINTAINER david2000tsi@gmail.com
+
+ENV MYSQL_ROOT_PASSWORD mysql
+ENV MYSQL_DATABASE db_test

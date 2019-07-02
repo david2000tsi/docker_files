@@ -1,0 +1,32 @@
+version: "3"
+services:
+    php_web:
+        container_name: apache-php7.0
+        build:
+            context: .
+            dockerfile: Dockerfile-app
+        ports:
+            - "8080:80"
+        volumes:
+            - "./webapp:/var/www/html"
+        networks:
+            - appnetwork
+    mysql_db:
+        container_name: mysql5.7
+        build:
+            context: .
+            dockerfile: Dockerfile-db
+        restart: always
+        ports:
+            - "3306:3306"
+        volumes:
+            - "dbdata:/var/lib/mysql"
+        networks:
+            - appnetwork
+volumes:
+    webapp:
+        driver: local
+    dbdata:
+        driver: local
+networks:
+    appnetwork:
