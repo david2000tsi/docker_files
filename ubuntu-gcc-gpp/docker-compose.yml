@@ -1,0 +1,19 @@
+version: "3"
+services:
+    ubuntu18:
+        container_name: ubuntu18-c-cpp
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "4000:4000"
+        volumes:
+            - "./src:/opt/src"
+        tty: true
+        networks:
+            - network
+volumes:
+    webapp:
+        driver: local
+networks:
+    network:
