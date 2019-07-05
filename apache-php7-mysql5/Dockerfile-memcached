@@ -1,0 +1,9 @@
+FROM ubuntu:18.04
+
+MAINTAINER david2000tsi@gmail.com
+
+RUN apt-get update && apt-get install -y net-tools iputils-ping memcached
+
+COPY ./conf/memcached.conf /etc/memcached.conf
+
+ENTRYPOINT ["/usr/bin/memcached", "-u", "memcache"]
