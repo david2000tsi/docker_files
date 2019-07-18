@@ -23,6 +23,16 @@ services:
             - "dbdata:/var/lib/mysql"
         networks:
             - appnetwork
+    memcached:
+        container_name: memcached-server
+        build:
+            context: .
+            dockerfile: Dockerfile-memcached
+        ports:
+            - "11211:11211"
+        tty: true
+        networks:
+            - appnetwork
 volumes:
     webapp:
         driver: local
