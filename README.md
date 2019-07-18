@@ -7,7 +7,7 @@ To run a docker file and create images/containers:
 Go to inside a specific docker file directory (thats contains the docker-compose.yml) and run the following command:
 
 ```
-docker-compose up
+docker-compose up -d
 ```
 
 Example:
@@ -23,7 +23,7 @@ cd <project_path>/apache-php7-mysql5
 Run docker:
 
 ```
-docker-compose up
+docker-compose up -d
 ```
 
 Your containers will be created and started and the content of the webapp directory will be mounted inside the '/var/www/html' from apache-php7 container.
